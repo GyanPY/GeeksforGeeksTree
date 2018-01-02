@@ -1,0 +1,22 @@
+class deltree {
+
+    static iNode root;
+
+    deltree() {
+        root = null;
+    }
+
+    void remove(iNode node) {
+
+        while (node == null) {
+            // System.out.println(prev.data);
+
+            return;
+        }
+
+        remove(node.left);
+        remove(node.right);
+        System.out.print(node.data + " ");
+        node = null;
+
+    }
