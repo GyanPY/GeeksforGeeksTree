@@ -1,0 +1,24 @@
+ void sum(iNode node) {
+        if(node==null)
+        {
+            return;
+        }
+        boolean check = false;
+        boolean step = true;
+       if(node != null) {
+            if (node.left.data + node.right.data == node.data) {
+                check = true;
+                
+            } else {
+                check = false;
+                step = false;
+                
+            }
+        }
+        if (step == false) {
+            System.out.println("They are not beholding the child sum property");
+        }else if(check==true && step == true){
+            System.out.println("they are considering child property");
+        }
+        
+    }
