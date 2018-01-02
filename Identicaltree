@@ -1,0 +1,31 @@
+class identical {
+
+    static iNode root1;
+    static iNode root2;
+
+    identical() {
+        root1 = null;
+        root2 = null;
+    }
+
+    static boolean step = false;
+
+    void functocheck(iNode node1, iNode node2) {
+
+        if (node1 == null && node2 == null) {
+
+            return;
+        }
+
+        if (node1.data == node2.data) {
+            step = true;
+
+        } else {
+            step = false;
+            System.out.println("fuck you, they are not identical");
+            System.exit(0);
+        }
+        functocheck(node1.left, node2.left);
+        functocheck(node1.right, node2.right);
+
+    }
