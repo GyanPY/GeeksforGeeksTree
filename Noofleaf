@@ -1,0 +1,39 @@
+
+class noofleaf{
+     static iNode root;
+
+    noofleaf() {
+        root = null;
+    }
+    static int count=0;
+    void leaf(iNode node)
+    { 
+        if(node==null)
+            return;
+        
+        if(node.left==null && node.right==null)
+        {
+            count++;
+        }
+        else{
+            leaf(node.left);
+            leaf(node.right);
+        }
+        System.out.println(count);
+        
+    }
+ public static void main(String... s)
+    {
+        noofleaf d1 = new noofleaf();
+        noofleaf.root = new iNode(10);
+        noofleaf.root.left = new iNode(8);
+        noofleaf.root.right = new iNode(2);
+        noofleaf.root.left.left = new iNode(3);
+        noofleaf.root.left.right = new iNode(5);
+        noofleaf.root.left.left.right = new iNode(5);
+        noofleaf.root.right.left = new iNode(6);
+        noofleaf.root.right.right = new iNode(7);
+        d1.leaf(root);
+        System.out.println(count);
+    }
+    }
