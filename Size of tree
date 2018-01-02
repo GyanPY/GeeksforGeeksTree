@@ -1,0 +1,20 @@
+class sizeoftree {
+
+    static iNode root;
+
+    sizeoftree() {
+        root = null;
+    }
+    int treesize = 0;
+
+    int size(iNode node) {
+        if (node == null) {
+            return 0;
+        } else {
+            int left = size(node.left);
+            int right = size(node.right);
+            treesize = left + right + 1;
+
+            return treesize;
+        }
+    }
