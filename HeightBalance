@@ -1,0 +1,31 @@
+class heightbalance {
+
+    static iNode root;
+
+    heightbalance() {
+        root = null;
+    }
+
+    int heightb(iNode node) {
+        boolean step = false;
+        if (node == null) {
+            return 0;
+        }
+        int lefth = heightb(node.left);
+        if (lefth == -1) {
+            return -1;
+        }
+        int righth = heightb(node.right);
+        if (righth == -1) {
+            return -1;
+        }
+
+        if (Math.abs(lefth - righth) > 1) {
+            step = false;
+            System.out.println("Tree is not height balanced");
+        } else {
+            step = true;
+        }
+        System.out.println(1 + Math.max(lefth, righth));
+        return 1 + Math.max(lefth, righth);
+    }
