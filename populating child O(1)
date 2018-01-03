@@ -1,0 +1,59 @@
+class connectnode{
+    static iNode root;
+    
+    connectnode()
+    {
+        root=null;
+    }
+    iNode getnextright(iNode node)
+    {
+        iNode temp = node.nextright;
+        while(temp!=null)
+        {
+            if(temp.left!=null)
+                return temp.left;
+            if(temp.right!=null)
+                return temp.right;
+            temp = temp.nextright;
+        }
+        return null;
+    }
+    void connection(iNode node)
+    {
+       
+        if(node==null)
+        {
+            return ;
+        }
+        node.nextright=null;
+        while(node!=null)
+        {
+            iNode n = node;
+            
+            while(n!=null)
+            {
+                if(n.left!=null)
+                {
+                    if(n.right!=null){
+                    n.left.nextright = n.right;
+                }
+                    else{
+                        n.left.nextright=getnextright(n);
+                    }
+                }
+                if(n.right!=null)
+                {
+                    n.right.nextright = getnextright(n);
+                }
+                n = n.nextright;
+            }
+            if(node.left!=null)
+                node = node.left;
+            if(node.right!=null)
+                node = node.right;
+            else
+                node = getnextright(node);
+        }
+        
+    }
+}
