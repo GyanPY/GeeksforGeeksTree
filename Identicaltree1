@@ -1,0 +1,47 @@
+class mirror{
+    static iNode root;
+   static iNode root1;
+    mirror()
+    {
+        root=null;
+        root1=null;
+    }
+    static boolean check(iNode node1,iNode node2)
+    {
+       
+        if(node1==null && node2==null)
+            return true;
+        if(node1==null || node2==null)
+            return false;
+        else{
+            if(node1.data==node2.data)
+            {
+                return true;
+            }
+           check(node1.left,node2.right);
+           check(node1.right,node2.left);
+        }
+        return false;
+    }
+    public static void main(String... s)
+    {
+        mirror s1 = new mirror();
+        s1.root = new iNode(1);
+        s1.root.left = new iNode(2);
+        s1.root.right = new iNode(3);
+        s1.root.left.left = new iNode(4);
+        s1.root.left.right = new iNode(5);
+        s1.root1 = new iNode(1);
+        s1.root1.left = new iNode(3);
+        s1.root1.right = new iNode(2);
+        s1.root1.right.left = new iNode(5);
+        s1.root1.right.right = new iNode(4);
+        if(s1.check(root, root1)==true)
+        {
+            System.out.println("Both trees are mirror image of each other");
+        }
+        else{
+            System.out.println("They are not mirror image of each other");
+        }
+    }
+}
